@@ -159,7 +159,6 @@ var __={
     ******************************************** */
     renderScreen:function(screenId, p={}){
         __.params = p;
-        this.ui.loading.screen();
         __.getContent(window.location.origin+"/screens/"+screenId+"/"+"ui.html", (html)=>{
             document.getElementById("screen").innerHTML = html;
             __.getScript(window.location.origin+"/screens/"+screenId+"/"+"logic.js");
@@ -183,9 +182,7 @@ var __={
     ******************************************** */
     loadComponent:function(componentId, params, cb){
         var that=this;        
-        console.log("LOAD COMPONENT", componentId);
         if(typeof __.components[componentId]==="undefined"){
-            console.log("GETTING COMPONENT");
             this.components[componentId]={"html":null, "js":null, "data":params};
             this.getContent(window.location.origin+"/components/"+componentId.toLowerCase()+"/ui.html", function(html){
                 document.getElementById(componentId+"ComponentHolder").innerHTML = html;
@@ -210,7 +207,7 @@ var __={
 
         els.forEach(function(el){
             el.classList.remove("is-invalid");
-            if(el.getAttribute("required")==="required"){            
+            if(el.getAttribute("required")!==null || el.getAttribute("required")==="required"){            
                 if(el.value.trim().length===0){
                     el.classList.add("is-invalid");
                     isInvalid=true;
@@ -227,7 +224,7 @@ var __={
                             regex=/[0-9]{10}/;
                         break;
                         case "number":
-                            if( (el.getAttribute("min")!==undefined && Number(str)<Number(el.getAttribute("min"))) || (el.getAttribute("max")!==undefined && Number(str)>Number(el.getAttribute("max"))  )){
+                            if( (el.getAttribute("min")!==null && Number(str)<Number(el.getAttribute("min"))) || (el.getAttribute("max")!==null && Number(str)>Number(el.getAttribute("max"))  )){
                                 el.classList.add("is-invalid");
                                 isInvalid=true;
                             }
@@ -340,7 +337,7 @@ var __={
     /*********************************************
         GET COOKIE
     ******************************************** */
-    getCookie:function(name){return document.cookie.split('; ').find(row => row.startsWith(name)).split('=')[1]; },
+    getCookie:function(name){return ((document.cookie) ? document.cookie.split('; ').find(row => row.startsWith(name)).split('=')[1] : null); },
 
     ui:{
         loading:{
