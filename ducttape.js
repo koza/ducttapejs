@@ -52,7 +52,7 @@ var __={
 
             files.forEach(function(file){
                 if(__.loaded.indexOf(file)===-1){
-                    __.getScript(window.location.origin+file+((__.config.use_min) ? ".min" : "")+".js", function(){
+                    __.getScript(window.location.origin+file+((__.config.use_min) ? "-min" : "")+".js", function(){
                         __.loaded.push(file);
                         __.loading--;
                         if(__.loading<=0){
@@ -159,9 +159,9 @@ var __={
     ******************************************** */
     renderScreen:function(screenId, p={}){
         __.params = p;
-        __.getContent(window.location.origin+"/screens/"+screenId+"/"+"ui"+((__.config.use_min) ? ".min" : "")+".html", (html)=>{
+        __.getContent(window.location.origin+"/screens/"+screenId+"/"+"ui"+((__.config.use_min) ? "-min" : "")+".html", (html)=>{
             document.getElementById("screen").innerHTML = html;
-            __.getScript(window.location.origin+"/screens/"+screenId+"/"+"logic"+((__.config.use_min) ? ".min" : "")+".js");
+            __.getScript(window.location.origin+"/screens/"+screenId+"/"+"logic"+((__.config.use_min) ? "-min" : "")+".js");
         });
     },
 
@@ -184,10 +184,10 @@ var __={
         var that=this;        
         if(typeof __.components[componentId]==="undefined"){
             this.components[componentId]={"html":null, "js":null, "data":params};
-            this.getContent(window.location.origin+"/components/"+componentId.toLowerCase()+"/ui"+((__.config.use_min) ? ".min" : "")+".html", function(html){
+            this.getContent(window.location.origin+"/components/"+componentId.toLowerCase()+"/ui"+((__.config.use_min) ? "-min" : "")+".html", function(html){
                 document.getElementById(componentId+"ComponentHolder").innerHTML = html;
                 that.components[componentId].html=html;
-                that.getScript(window.location.origin+"/components/"+componentId.toLowerCase()+"/logic"+((__.config.use_min) ? ".min" : "")+".js", function(){ cb(); });
+                that.getScript(window.location.origin+"/components/"+componentId.toLowerCase()+"/logic"+((__.config.use_min) ? "-min" : "")+".js", function(){ cb(); });
             });
         }else{            
             this.components[componentId].data=params;
