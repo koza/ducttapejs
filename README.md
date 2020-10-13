@@ -4,7 +4,9 @@ DuctTapeJS is a very light weight web application framework. Following the conve
 **Built-in Functionality**
 
  - URL routing
- - Making API requests
+ - Screen management
+ - Reusable components
+ - API requests
  - Getting, setting and validating form data
  - Loading indicators
 
