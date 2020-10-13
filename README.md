@@ -1,5 +1,12 @@
 ## Introduction
-DuctTapeJS is a very light weight web application framework. Following the convention over configuration design paradigm. It offers you an easy way to structure your webapp along with some built-in functionality like making API requests, getting, setting and validating form data, loading indicators, etc...  and then gets out of your way.
+DuctTapeJS is a very light weight web application framework. Following the convention over configuration design paradigm. It offers you an easy way to structure your webapp along with some built-in functionality and then gets out of your way.
+
+**Built-in Functionality**
+
+ - URL routing
+ - Making API requests
+ - Getting, setting and validating form data
+ - Loading indicators
 
 ## Recommended Libraries To Include In Your Project
  - Bootstrap - for layout
