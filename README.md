@@ -9,6 +9,10 @@ DuctTapeJS is a very light weight web application framework. Following the conve
  - API requests
  - Getting, setting and validating form data
  - Loading indicators
+ - Random string generator
+ - Random integer generator
+ - Simplified querystring access
+ - Mobile detection
 
 ## Recommended Libraries To Include In Your Project
  - Bootstrap - for layout
