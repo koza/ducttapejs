@@ -6,3 +6,12 @@ DuctTapeJS is a very light weight web application framework. Following the conve
  - MomentJS - for all things date and time related.
  - SweetAlert2 - for toasts, alerts and message boxes UI
  - Lodash - if you need to do anythng fancy with arrays, collections, objects, etc...
+ 
+ ## Project Structure
+ 
+ ## Getting Started
+ 
+ ## DuctTape Reference
+ 
+ ## Examples
+ 
